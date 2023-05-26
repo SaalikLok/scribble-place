@@ -2,7 +2,7 @@ class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @scribbles = Scribble.all
+    @scribbles = Scribble.all.order(updated_at: :desc)
   end
 
   def new
@@ -10,12 +10,14 @@ class ScribblesController < ApplicationController
   end
 
   def create
-    @scribble = Scribble.new(params[:scribble])
+    @scribble = Scribble.new(scribble_params)
+    @scribble.user = current_user
+
     if @scribble.save
-      flash[:success] = "Scribble successfully created"
-      redirect_to @scribble
+      flash[:notice] = "Scribble successfully created"
+      redirect_to scribbles_path
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "Something went wrong"
       render "new"
     end
   end
@@ -26,23 +28,32 @@ class ScribblesController < ApplicationController
 
   def update
     @scribble = Scribble.find(params[:id])
+    @scribble.user = current_user
     if @scribble.update_attributes(params[:scribble])
-      flash[:success] = "Scribble was successfully updated"
-      redirect_to @scribble
+      flash[:notice] = "Scribble was successfully updated"
+      redirect_to scribbles_path
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "Something went wrong"
       render "edit"
     end
   end
 
   def destroy
     @scribble = Scribble.find(params[:id])
+    @scribble.user = current_user
+
     if @scribble.destroy
-      flash[:success] = "Scribble was successfully deleted."
+      flash[:notice] = "Scribble was successfully deleted."
     else
-      flash[:error] = "Something went wrong"
+      flash[:alert] = "Something went wrong"
     end
 
-    redirect_to scribbles_url
+    redirect_to scribbles_path
+  end
+
+  private
+
+  def scribble_params
+    params.require(:scribble).permit(:content)
   end
 end

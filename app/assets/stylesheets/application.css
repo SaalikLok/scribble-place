@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.scribble-main-container {
+  max-width: 680px;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}

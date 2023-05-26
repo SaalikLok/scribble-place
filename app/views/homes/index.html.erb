@@ -1,10 +1,12 @@
-<section class="text-center">
-  <h1>Scribble Place</h1>
+<h1>Scribble Place</h1>
 
-  <%= image_tag "scribble_logo" %>
+<%= image_tag "scribble_logo", class: "max-w-sm self-center" %>
 
-  <p>A place to write</p>
-  <p>A place to read</p>
-  <p>A place to scribble</p>
-  <p>A place to be</p>
-</section>
+<p>A place to write</p>
+<p>A place to read</p>
+<p>A place to scribble</p>
+<p>A place to be</p>
+
+<%= link_to "Start Scribbling", scribbles_path, 
+  class: "bg-emerald-600 text-gray-100 rounded-md p-3 mt-3 transform hover:scale-105 transition ease-in-out duration-200" 
+%>
