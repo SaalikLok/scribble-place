@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScribblePlace</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-amber-50 text-stone-900">
+    <%= render partial: "homes/nav" %>
+    
+    <p class="notice bg-amber-200"><%= notice %></p>
+    <p class="alert bg-red-200"><%= alert %></p>
+
+    <main class="container mx-auto mt-28 px-5">
+      <%= yield %>
+    </main>
+
+    <%= render partial: "homes/footer" %>
+  </body>
+</html>
