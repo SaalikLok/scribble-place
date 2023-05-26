@@ -1,24 +1,14 @@
-# README
+# Scribble Place
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A delightful corner of the internet to privately scribble thoughts and craft short-form text.
 
-Things you may want to cover:
+## 🚧 Under Active Development
 
-* Ruby version
+More to come here!
 
-* System dependencies
 
-* Configuration
+### Built with:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby 3.2.1
+- Rails 7
+- TailwindCSS
