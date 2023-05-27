@@ -1,11 +1,35 @@
-<h1>Scribble Place</h1>
+<div class="flex justify-around items-center mb-5">
+  <%= image_tag "scribble_logo.png", class: "max-w-sm self-center" %>
+  <div class="text-lg">
+    <p>A place to write</p>
+    <p>A place to read</p>
+    <p>A place to scribble</p>
+    <p>A place to be.</p>
+  </div>
+</div>
 
-<%= image_tag "scribble_logo.png", class: "max-w-sm self-center" %>
-
-<p>A place to write</p>
-<p>A place to read</p>
-<p>A place to scribble</p>
-<p>A place to be</p>
+<section class="flex flex-col gap-4 text-left">
+  <div>  
+    <h4 class="text-2xl">What is this?</h4>
+    <p class="text-lg">A private corner of the internet for us to practice short form writing, capture thoughts, or just experiment. It's halfway between your journal and Twitter. It's not a social network -- your thoughts here are totally yours.</p>
+  </div>
+  <div>  
+    <h4 class="text-2xl">Where does this work?</h4>
+    <p class="text-lg">Scribble is a website, but it's built to be used on mobile, too. You can bookmark it on your phone for easy access.</p>
+  </div>
+  <div>  
+    <h4 class="text-2xl">Is it free?</h4>
+    <p class="text-lg">You bet. I consider this little app to be a gift, and crafting it is a labor of love. If you have found it to be a beautiful experience and want to contribute to ongoing development, you can buy me a coffee!</p>
+  </div>
+  <div>  
+    <h4 class="text-2xl">Can I upload images?</h4>
+    <p class="text-lg">These scribbles are meant to be for text-only, for now. Freedom comes from constraints.</p>
+  </div>
+  <div>  
+    <h4 class="text-2xl">Who builds this?</h4>
+    <p class="text-lg">Ah, I forgot to introduce myself! I'm <a href="https://saaliklok.com">Saalik</a>, a builder, writer, and scribbler.</p>
+  </div>
+</section>
 
 <%= link_to "Start Scribbling", scribbles_path, 
   class: "bg-cyan-700 text-gray-100 rounded-md p-3 mt-3 transform hover:scale-105 transition ease-in-out duration-200" 
