@@ -2,7 +2,7 @@ class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @scribbles = Scribble.all.order(updated_at: :desc)
+    @scribbles = current_user.scribbles.order(updated_at: :desc)
   end
 
   def new
