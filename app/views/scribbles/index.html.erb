@@ -1,14 +1,14 @@
 
 <h2 class="text-xl mb-3">Your Scribbles</h2>
 
+<%= turbo_frame_tag "new_scribble", src: new_scribble_path, class: "mb-5" %>
+
 <% if @scribbles.empty? %>
-  No Scribbles here...  
+  <p>No Scribbles here...</p>
 <% else %>
-  <div class="flex flex-col mx-5 border-t-2 border-stone-900">
-    <% for scribble in @scribbles %>
-      <%= render partial: "scribble", locals: { content: scribble.content, time: scribble.updated_at } %>
-    <% end %>
-  </div>
+  <%= turbo_frame_tag "all_scribbles", class: "flex flex-col mx-5 border-t-2 border-stone-900" do %>
+    <%= render @scribbles %>
+  <% end %>
 <% end %>
 
 <%= link_to "New Scribble", new_scribble_path,
