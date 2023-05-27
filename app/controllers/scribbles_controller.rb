@@ -2,7 +2,7 @@ class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @scribbles = Scribble.all.order(updated_at: :desc)
+    @scribbles = current_user.scribbles.order(updated_at: :desc)
   end
 
   def new
@@ -14,16 +14,18 @@ class ScribblesController < ApplicationController
     @scribble.user = current_user
 
     if @scribble.save
-      flash[:notice] = "Scribble successfully created"
-      redirect_to scribbles_path
+      respond_to do |format|
+        format.html { redirect_to scribbles_path, notice: "Scribble created!" }
+        format.turbo_stream
+      end
     else
       flash[:alert] = "Something went wrong"
-      render "new"
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @scribble = Scribble.find
+    @scribble = Scribble.find(params[:id])
   end
 
   def update
