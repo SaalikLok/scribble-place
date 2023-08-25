@@ -1,4 +1,3 @@
-
 <h2 class="text-xl mb-3">Your Scribbles</h2>
 
 <%= turbo_frame_tag "new_scribble", src: new_scribble_path, class: "mb-5" %>
@@ -10,7 +9,3 @@
     <%= render @scribbles %>
   <% end %>
 <% end %>
-
-<%= link_to "New Scribble", new_scribble_path,
-    class: "bg-emerald-600 text-gray-100 rounded-md p-3 mt-3 transform hover:scale-105 transition ease-in-out duration-200"
-%>
