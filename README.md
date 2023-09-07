@@ -4,8 +4,7 @@ A delightful corner of the internet to privately scribble thoughts and craft sho
 
 ## 🚧 Under Active Development
 
-More to come here!
-
+If this looks interesting and you want to collaborate, feel free to reach out to me: saalik@thespoonful.dev
 
 ### Built with:
 
