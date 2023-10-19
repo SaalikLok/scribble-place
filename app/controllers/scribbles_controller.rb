@@ -2,7 +2,12 @@ class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @scribbles = current_user.scribbles.order(updated_at: :desc)
+    @pagy, @scribbles = pagy_countless(current_user.scribbles.order(updated_at: :desc), items: 10)
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def new

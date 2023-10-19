@@ -105,6 +105,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -154,6 +156,7 @@ GEM
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (6.1.0)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
@@ -299,9 +302,11 @@ DEPENDENCIES
   devise
   dockerfile-rails (>= 1.0.0)
   factory_bot_rails
+  faker
   importmap-rails
   jbuilder
   launchy
+  pagy (~> 6.1)
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
