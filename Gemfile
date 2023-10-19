@@ -76,3 +76,5 @@ group :development do
 end
 
 gem "dockerfile-rails", ">= 1.0.0", :group => :development
+gem "faker"
+gem "pagy", "~> 6.1"
