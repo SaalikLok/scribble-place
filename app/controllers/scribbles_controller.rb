@@ -2,12 +2,7 @@ class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pagy, @scribbles = pagy_countless(current_user.scribbles.order(updated_at: :desc), items: 10)
-
-    respond_to do |format|
-      format.html
-      format.turbo_stream
-    end
+    @scribbles = current_user.scribbles.order(created_at: :desc)
   end
 
   def new
@@ -19,10 +14,7 @@ class ScribblesController < ApplicationController
     @scribble.user = current_user
 
     if @scribble.save
-      respond_to do |format|
-        format.html { redirect_to scribbles_path, notice: "Scribble created!" }
-        format.turbo_stream
-      end
+      redirect_to scribbles_path
     else
       flash[:alert] = "Something went wrong"
       render :new, status: :unprocessable_entity
