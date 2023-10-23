@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   root "homes#index"
-  get "/home", to: "homes#index"
+  get "/home", to: "homes#home"
 
   devise_for :users, controllers: { registrations: "users/registrations" }
 
-  resources :scribbles, except: :show do
-    collection do
-      post :index
-    end
-  end
+  resources :scribbles, except: :show
 end
