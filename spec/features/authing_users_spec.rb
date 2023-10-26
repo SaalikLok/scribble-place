@@ -12,7 +12,7 @@ RSpec.feature "Authenticating", type: :feature do
 
     click_button "Sign up"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(new_scribble_path)
   end
 
   scenario "User logs into Scribble" do
@@ -23,7 +23,7 @@ RSpec.feature "Authenticating", type: :feature do
 
     click_button "Log in"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(new_scribble_path)
     expect(page).to have_content("Signed in successfully.")
   end
 end
