@@ -10,13 +10,13 @@ RSpec.describe Scribble, type: :model do
     expect(scribble).to_not be_valid
   end
 
-  it "must not have content longer than 10000 characters" do
-    scribble = build(:scribble, content: "a" * 10001)
+  it "must not have content longer than 1000 characters" do
+    scribble = build(:scribble, content: "a" * 1001)
     expect(scribble).to_not be_valid
   end
 
-  it "can have content that is 10000 characters long" do
-    scribble = build(:scribble, content: "a" * 10000)
+  it "can have content that is 1000 characters long" do
+    scribble = build(:scribble, content: "a" * 1000)
     expect(scribble).to be_valid
   end
 end
