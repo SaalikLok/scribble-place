@@ -1,10 +1,10 @@
-<h2 class="text-xl mb-3">Your Scribbles</h2>
+<h2 class="text-xl mb-3 underline leading-7">Your Scribbles</h2>
 
 <% if @scribbles.empty? %>
   <p>No Scribbles here... why not add one?</p>
   <%= link_to "Scribble", new_scribble_path, class: "bg-cyan-700 text-white font-bold py-2 px-4 rounded hover:scale-105 transition ease-in-out duration-200" %>
 <% else %>
-  <section class="flex flex-col mx-5 border-t-2 border-stone-900">
+  <section class="flex flex-col mx-5">
     <%= render @scribbles %>
   </section>
 <% end %>
