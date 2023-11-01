@@ -14,11 +14,6 @@
 
   <body class="bg-amber-50 text-stone-900">
     <%= render partial: "homes/nav" %>
-    
-    <div class="bg-indigo-800 text-white px-4 py-3 flex items-center gap-2">
-      <span class="font-bold">🚧 Work in Progress:</span>
-      <span class="opacity-75">Right now, Scribble is under active development. UI will be shifting and data integrity isn't guaranteed.</span>
-    </div>
 
     <% flash.each do |type, message| %>
       <div class="bg-<%= type == "notice" ? "green" : "red" %>-500 text-white px-4 py-3 flex items-center gap-2" role="alert">

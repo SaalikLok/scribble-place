@@ -1,17 +1,16 @@
 <div class="flex flex-wrap justify-around items-center mb-5">
   <%= image_tag "scribble_logo.png", class: "max-w-sm self-center" %>
   <div class="text-lg">
-    <p>A place to write</p>
-    <p>A place to read</p>
-    <p>A place to scribble</p>
-    <p>A place to be.</p>
+    <p>A place to collect</p>
+    <p>A place to craft</p>
+    <p>A place to scribble.</p>
   </div>
 </div>
 
 <section class="flex flex-col gap-4 text-left">
   <div>  
     <h4 class="text-2xl">What is this?</h4>
-    <p class="text-lg">A private space to capture thoughts, ideas, and anything in between. Think of it as having the privacy of a journal, with the techy text of Twitter (RIP). It's not a social network -- your thoughts here are totally yours.</p>
+    <p class="text-lg">A private space online to capture thoughts, ideas, and anything in between. It has the privacy of a journal, but is meant for short tweet-like bites of text. It's not a social network -- your thoughts here are totally yours.</p>
   </div>
   <div>  
     <h4 class="text-2xl">Is there a mobile app?</h4>
@@ -27,10 +26,10 @@
   </div>
   <div>  
     <h4 class="text-2xl">Who builds this?</h4>
-    <p class="text-lg">Ah, I forgot to introduce myself! I'm <a href="https://saaliklok.com">Saalik</a>, a builder, writer, and scribbler. If you want to get in touch, reach me at saalik@thespoonful.dev</p>
+    <p class="text-lg">Ah, I forgot to introduce myself! 👋 I'm <a class="underline" href="https://saaliklok.com">Saalik</a>, a builder, writer, and scribbler. If you want to get in touch, reach me at saalik@thespoonful.dev</p>
   </div>
 </section>
 
-<%= link_to "Start Scribbling", scribbles_path, 
+<%= link_to "Start Scribbling", new_scribble_path, 
   class: "bg-cyan-700 text-gray-100 rounded-md p-3 mt-3 transform hover:scale-105 transition ease-in-out duration-200" 
 %>
