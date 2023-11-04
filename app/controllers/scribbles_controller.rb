@@ -28,7 +28,8 @@ class ScribblesController < ApplicationController
   def update
     @scribble = Scribble.find(params[:id])
     @scribble.user = current_user
-    if @scribble.update_attributes(params[:scribble])
+    @scribble.content = scribble_params[:content]
+    if @scribble.save
       flash[:notice] = "Scribble was successfully updated"
       redirect_to scribbles_path
     else

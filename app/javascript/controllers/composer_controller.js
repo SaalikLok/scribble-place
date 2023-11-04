@@ -12,7 +12,6 @@ export default class extends Controller {
     const textarea = this.element.querySelector("textarea");
     const maxLength = textarea.getAttribute("maxlength");
     const currentLength = textarea.value.length;
-    console.log("UPDATE COUNT")
     count.textContent = `${currentLength}/${maxLength} characters`;
   }
 }
