@@ -1,8 +1,11 @@
 <article class="p-2 sm:p-4 w-full mx-auto mb-4 bg-stone-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-left border-b-2 border-stone-400">
-  <div class="sm:text-lg mb-2 flex flex-col gap-4">
+  <p class="sm:text-lg mb-2 flex flex-col gap-4">
     <%= simple_format(scribble.content) %>
-  </div>
-  <p class="text-gray-500 text-xs leading-7">
-    On <%= scribble.updated_at.in_time_zone(current_user.timezone).strftime("%B %d, %Y at %I:%M %p") %>
   </p>
+  <div class="flex justify-between">
+    <p class="text-gray-500 text-xs leading-7">
+      On <%= scribble.created_at.in_time_zone(current_user.timezone).strftime("%B %d, %Y at %I:%M %p") %>
+    </p>
+    <%= link_to "edit", edit_scribble_path(scribble), class: "text-gray-500 text-xs leading-7" %>
+  </div>
 </article>
