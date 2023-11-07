@@ -15,11 +15,12 @@
   <body class="bg-amber-50 text-stone-900">
     <%= render partial: "homes/nav" %>
 
-    <% flash.each do |type, message| %>
-      <div class="bg-<%= type == "notice" ? "green" : "red" %>-500 text-white px-4 py-3 flex items-center gap-2" role="alert">
-        <span class="font-bold"><%= type.capitalize %></span>
-        <span class="opacity-75"><%= message %></span>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <% flash.each do |key, message| %>
+      <div class="bg-stone-700 text-white px-4 py-3 flex items-center justify-between gap-2" role="alert">
+        <div>  
+          <span class="opacity-75"><%= message %></span>
+        </div>
+        <button type="button" onclick="this.parentElement.style.display='none'" aria-label="Close">
           <span aria-hidden="true" class="text-white">&times;</span>
         </button>
       </div>

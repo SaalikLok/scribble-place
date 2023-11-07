@@ -30,8 +30,8 @@ class ScribblesController < ApplicationController
     @scribble.user = current_user
     @scribble.content = scribble_params[:content]
     if @scribble.save
-      flash[:notice] = "Scribble was successfully updated"
       redirect_to scribbles_path
+      flash[:notice] = "✏️ Your Scribble was updated."
     else
       flash[:alert] = "Something went wrong"
       render "edit"
@@ -43,7 +43,7 @@ class ScribblesController < ApplicationController
     @scribble.user = current_user
 
     if @scribble.destroy
-      flash[:notice] = "Scribble was successfully deleted."
+      flash[:notice] = "🗑️ Your Scribble was deleted."
     else
       flash[:alert] = "Something went wrong"
     end
