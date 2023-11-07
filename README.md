@@ -1,10 +1,8 @@
 # Scribble Place
 
-A delightful corner of the internet to privately scribble thoughts and craft short-form text.
+A delightful corner of the internet to privately scribble thoughts and craft short-form text. Built and maintained by [yours truly](https://saaliklok.com).
 
-## 🚧 Under Active Development
-
-If this looks interesting and you want to collaborate, feel free to reach out to me: saalik@thespoonful.dev
+Make an account [on the website](https://scribble.place).
 
 ### Built with:
 
