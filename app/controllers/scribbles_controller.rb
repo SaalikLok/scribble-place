@@ -23,6 +23,10 @@ class ScribblesController < ApplicationController
 
   def edit
     @scribble = Scribble.find(params[:id])
+
+    unless current_user == @scribble.user
+      redirect_to scribbles_path, alert: "You are not authorized to edit this scribble."
+    end
   end
 
   def update
