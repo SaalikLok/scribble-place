@@ -121,15 +121,16 @@ RSpec.describe ScribblesController, type: :request do
   describe "DELETE #destroy" do
     let(:user) { create(:user) }
     let(:other_user) { create(:user, email: "otheremail@scribble.place") }
-    let(:scribble) { create(:scribble, user: user) }
+    let!(:scribble) { create(:scribble, user: user) }
 
     context "when user is the owner of the scribble" do
       before { sign_in user }
 
       it "deletes the scribble" do
-        expect {
-          delete scribble_path(scribble)
-        }.to change(Scribble, :count).by(-1)
+        delete scribble_path(scribble)
+
+        expect(user.scribbles.count).to eq(0)
+        expect(other_user.scribbles.count).to eq(0)
       end
     end
 
@@ -137,9 +138,10 @@ RSpec.describe ScribblesController, type: :request do
       before { sign_in other_user }
 
       it "does not delete the scribble" do
-        expect {
-          delete scribble_path(scribble)
-        }.not_to change(Scribble, :count)
+        delete scribble_path(scribble)
+
+        expect(user.scribbles.count).to eq(1)
+        expect(other_user.scribbles.count).to eq(0)
       end
     end
   end
