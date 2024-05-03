@@ -44,12 +44,13 @@ class ScribblesController < ApplicationController
 
   def destroy
     @scribble = Scribble.find(params[:id])
-    @scribble.user = current_user
 
-    if @scribble.destroy
-      flash[:notice] = "🗑️ Your Scribble was deleted."
-    else
-      flash[:alert] = "Something went wrong"
+    if @scribble.user == current_user
+      if @scribble.destroy
+        flash[:notice] = "🗑️ Your Scribble was deleted."
+      else
+        flash[:alert] = "Something went wrong"
+      end
     end
 
     redirect_to scribbles_path
