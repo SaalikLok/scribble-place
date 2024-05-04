@@ -3,16 +3,11 @@ require "rails_helper"
 RSpec.feature "Authenticating", type: :feature do
   let(:user) { create(:user, email: "crazyperson@saaliklok.com", password: "password") }
 
-  scenario "User signs up for Scribble" do
+  scenario "User cannot sign up for Scribble via the app" do
     visit new_user_registration_path
 
-    fill_in "Email", with: "superscribbler@lokbros.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-
-    click_button "Sign up"
-
-    expect(current_path).to eq(new_scribble_path)
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("New registrations are not allowed.")
   end
 
   scenario "User logs into Scribble" do
