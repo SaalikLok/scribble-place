@@ -26,6 +26,16 @@
       </div>
     <% end %>
 
+    <div class="bg-teal-100 border border-teal-300 text-teal-800 p-4 rounded-lg shadow-md flex justify-between items-center">
+      <div>
+        <p class="text-md font-semibold">Scribble, in its current form, will be shutting down on November 1, 2024.</p>
+      </div>
+      <% if user_signed_in? %>
+        <div>
+          <%= link_to 'Download Your Data (CSV)', export_data_path(current_user, format: :csv), class: 'ml-4 bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out' %>
+        </div>
+      <% end %>
+    </div>
 
     <main class="scribble-main-container mx-auto flex flex-col text-center">
       <%= yield %>
