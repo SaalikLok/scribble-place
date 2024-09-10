@@ -1,3 +1,5 @@
+require 'csv'
+
 class ScribblesController < ApplicationController
   before_action :authenticate_user!
 
@@ -56,7 +58,25 @@ class ScribblesController < ApplicationController
     redirect_to scribbles_path
   end
 
+  def export_data
+    @scribbles = current_user.scribbles.order(created_at: :desc)
+
+    respond_to do |format|
+      format.csv { send_data generate_csv(@scribbles), filename: "scribbles-#{Date.today}.csv" }
+    end
+  end
+
   private
+
+  def generate_csv(scribbles)
+    CSV.generate(headers: true) do |csv|
+      csv << ["Created At", "Content"]
+
+      scribbles.each do |scribble|
+        csv << [scribble.created_at, scribble.content]
+      end
+    end
+  end
 
   def scribble_params
     params.require(:scribble).permit(:content)
